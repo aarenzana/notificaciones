@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>helloworld</name>
+    <name>ADP Notificaciones - aal dev</name>
     <description>
-        Push sample application that receives push notifications.
+        Aplicación de notificaciónes de mensajes de sistema AdPunto
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="alejandro@adp.mx" href="http://adpunto.mx">
+        AdPunto Inbound Marketing
     </author>
     <content src="index.html" />
     <access origin="*" />
