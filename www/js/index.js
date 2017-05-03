@@ -170,7 +170,7 @@ var app = {
                   console.log("Recibí los datos");
                   //&console.log(data.info.comentarios_total);
 
-                  var myHtmlList="";
+                  var myHtmlList = "";
 
                   $.each(data.dataset.comentarios, function(index, value) {
 
@@ -184,7 +184,7 @@ var app = {
 
 			       myHtmlList+=`
                  <li class="list-message">
-                   <a  href="#" onclick="cordova.InAppBrowser.open('http://t.adp.mx/${value.co_id_tarea}', '_system');return false;" class="w-clearfix w-inline-block" data-load="1" >
+                   <a href="#" class="w-clearfix w-inline-block" data-load="1" >
                      <div class="column-left w-clearfix">
                        <div class="image-message ${red}">
                          <img src="http://adpdev.com/adp/images/linkedin/${value.co_id_usuario}.png">
@@ -195,16 +195,17 @@ var app = {
                      </div>
                      <div class="column-right">
                        <div class="message-title">
-                         <strong>${value.co_recurso}</strong> en ${value.co_nombre_tarea}
+                         <span class="msg-recurso">${value.co_recurso}<span>
+                         <span class="msg-title"> en ${value.co_nombre_tarea_full}</span>
                        </div>
                        <div class="message-text">
-                         ${value.co_comentario}
+                         ${value.co_comentario_full}
+                       </div>
+                       <div class="time-elapsed ${red}">
+                         ${value.co_nombre_cliente_full}
                        </div>
                      </div>
                    </a>
-                   <div class="time-elapsed ${red}">
-                     ${value.co_nombre_cliente}
-                   </div>
                  </li>
              `;
 
@@ -223,6 +224,34 @@ var app = {
           }
         });
     }
+
+
+     $("#listamensajes").on("click", ".list-message", function(){
+       var msgRecurso = $(this).find(".msg-recurso").html()
+         , recursoImg = $(this).find(".image-message").html()
+         , msgTitle = $(this).find(".msg-title").html()
+         , msgComment = $(this).find(".message-text").html()
+         , singleMessage = '';
+
+       singleMessage+=`
+            <div class="message">
+              <div class="image-message">${recursoImg}</div>
+              <div><b>${msgRecurso}</b></div>
+              <p class="full-message-text">${msgComment}</p>
+            </div>
+        `;
+
+       $.fancybox.open(singleMessage);
+
+      //  var singleMsg = window.open('mensaje.html');
+      //  singleMsg.$(".single-message").html("mensajeInd");
+
+     });
+
+
+
+
+
 
         push.on('notification', function(data) {
         	 updateComentarios(user_id);

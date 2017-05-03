@@ -196,5 +196,22 @@
   <script src="js/jquery.min.js" type="text/javascript"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
+  <script>
+    $(".list-message").fancybox({
+      //options
+    });
+
+    $(".list-message").on("click", function(){
+      const singleMessage = `
+      <div class="message-title">Chris&nbsp;Thompson</div>
+      <div class="message-text">I want to create a mobile page or maybe an app so I might use Manhattan which is cool</div>
+      `;
+      $.fancybox.open(singleMessage);
+
+    });
+
+  </script>
 </body>
 </html>

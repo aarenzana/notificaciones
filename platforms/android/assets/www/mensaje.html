@@ -34,7 +34,7 @@
 
 
 
-    <title>Hello World</title>
+    <title>Mensaje</title>
 </head>
 
 <body>
@@ -77,7 +77,7 @@
             <div class="separator-bottom"></div>
           </nav>
           <div class="wrapper-mask" data-ix="menu-mask"></div>
-          <div class="navbar-title">Mensajes</div>
+          <div class="navbar-title">Mensaje Individual</div>
           <div class="navbar-button right w-nav-button" id="menu-button">
             <div class="home-icon navbar-button-icon">
               <div class="bar-home-icon top"></div>
@@ -92,12 +92,10 @@
       </div>
       <div class="body">
 
-        <ul class="list list-messages" id="listamensajes">
+        <div class="single-message">
 
-<!-- Mensaje pendiente -->
+        </div>
 
-<!-- Mensaje pendiente -->
-        </ul>
       </div>
     </div>
     <div class="loading-mask page-content" id="new-stack">
@@ -114,9 +112,6 @@
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
-
 
 
   <script src="js/webfont.js"></script>
@@ -136,13 +131,13 @@
         app.initialize();
     </script>
     <script>
+      $('.w-nav-overlay').on('swipeup',function(){
+        alert("swipeup..");
+      } );
 
-      $(".list-message").fancybox({
-          //options
-
-	     });
-
+      $(".single-message").html(mensajeInd);
     </script>
+
 </body>
 
 </html>
