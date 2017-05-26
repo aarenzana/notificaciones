@@ -186,23 +186,28 @@ var app = {
                  <li class="list-message">
                    <a href="#" class="w-clearfix w-inline-block" data-load="1" >
                      <div class="column-left w-clearfix">
-                       <div class="image-message ${red}">
+                       <div id="resource-img" class="image-message${red}">
                          <img src="http://adpdev.com/adp/images/linkedin/${value.co_id_usuario}.png">
                        </div>
-                       <div class="time-elapsed ${red}">
+                       <div class="time time-elapsed${red}">
                          ${value.co_fecha_registro}
                        </div>
                      </div>
                      <div class="column-right">
-                       <div class="message-title">
+                       <div class="time-elapsed">
                          <span class="msg-recurso">${value.co_recurso}<span>
                          <span class="msg-title"> en ${value.co_nombre_tarea_full}</span>
                        </div>
-                       <div class="message-text">
-                         ${value.co_comentario_full}
+                       <div>
+                         <div class="message-text">
+                          ${value.co_comentario_trim}
+                         </div>
+                         <div class="message-text-full" style="display:none;">
+                          ${value.co_comentario_full}
+                         </div>
                        </div>
-                       <div class="time-elapsed ${red}">
-                         ${value.co_nombre_cliente_full}
+                       <div class="tarealink" style="display:none">
+                       ${value.co_id_tarea}
                        </div>
                      </div>
                    </a>
@@ -228,16 +233,41 @@ var app = {
 
      $("#listamensajes").on("click", ".list-message", function(){
        var msgRecurso = $(this).find(".msg-recurso").html()
-         , recursoImg = $(this).find(".image-message").html()
+         , recursoImg = $(this).find("#resource-img").html()
          , msgTitle = $(this).find(".msg-title").html()
-         , msgComment = $(this).find(".message-text").html()
+         , msgCommentTrim = $(this).find(".message-text").html()
+         , msgComment = $(this).find(".message-text-full").html()
+         , timeElapsed = $(this).find(".time").html()
+         , tareaLink = $(this).find(".tarealink").html()
          , singleMessage = '';
+
+         console.log(msgCommentTrim);
 
        singleMessage+=`
             <div class="message">
-              <div class="image-message">${recursoImg}</div>
-              <div><b>${msgRecurso}</b></div>
+              <div class="message-head">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td width="20%">
+                      <div class="image-message">${recursoImg}</div>
+                    </td>
+                    <td width="80%">
+                      <div class="resource">
+                        <b>${msgRecurso}</b>
+                        <div class="timeel">Hace ${timeElapsed}</div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
               <p class="full-message-text">${msgComment}</p>
+              <br />
+              <div>
+                <a class="tarea-link" href="#" onclick="cordova.InAppBrowser.open('http://t.adp.mx/${tareaLink}', '_system');return false;">
+                  Ver tarea: http://t.adp.mx/${tareaLink}
+                </a>
+              </div>
             </div>
         `;
 

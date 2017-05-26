@@ -1,4 +1,4 @@
-
+a
 /*------------------------------------------------------------------
 [Table of contents]
 
@@ -1333,8 +1333,9 @@ a {
   line-height: 1.6em;
   text-decoration: none;
   overflow: hidden;
+  max-height:48px;
   text-overflow: ellipsis;
-  white-space:nowrap;
+  white-space:inherit;
 }
 .full-message-text{
   font-size:0.88em;
@@ -2036,6 +2037,12 @@ html.w-mod-js *[data-ix="list-item"] {
 
 
 /* [5. EXTRA] */
+.w-clearfix{
+
+}
+.w-inline-block{
+
+}
 
 .navbar{
     width:inherit;
@@ -2122,4 +2129,30 @@ input[type=text]:focus, textarea:focus {
 .fancybox-slide>* {
   width:100%;
   height:100%;
+  margin:0 !important;
+}
+.fancybox-close-small:after{
+  font-size:40px !important;
+  color:#0b3b94 !important;
+}
+.message{
+    margin-top:3.5em;
+}
+
+.message p{
+  padding:0;
+  margin-top:1.70em;
+}
+.message div.resource .timeel{
+  font-size:0.8em;
+  font-style:italic;
+}
+
+.message .full-message-text img{
+  max-width:90%;
+  max-height:300px;
+  width:auto !important;
+  margin:1.25em auto !important;
+  display:block;
+  border:1px solid #eee;
 }
