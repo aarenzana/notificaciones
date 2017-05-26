@@ -207,7 +207,7 @@ var app = {
                          </div>
                        </div>
                        <div class="tarealink" style="display:none">
-                       ${value.co_id_tarea}
+                          ${value.co_id_tarea}
                        </div>
                      </div>
                    </a>
@@ -264,7 +264,7 @@ var app = {
               <p class="full-message-text">${msgComment}</p>
               <br />
               <div>
-                <a class="tarea-link" href="#" onclick="cordova.InAppBrowser.open('http://t.adp.mx/${tareaLink}', '_system');return false;">
+                <a class="tarea-link" href="http://t.adp.mx/${tareaLink}">
                   Ver tarea: http://t.adp.mx/${tareaLink}
                 </a>
               </div>
