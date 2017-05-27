@@ -2152,7 +2152,11 @@ input[type=text]:focus, textarea:focus {
   max-width:90%;
   max-height:300px;
   width:auto !important;
-  margin:1.25em auto !important;
+  margin:1.5em auto !important;
   display:block;
   border:1px solid #eee;
+}
+.tarea-link{
+  text-decoration:underline;
+  color:blue;
 }

@@ -199,16 +199,12 @@ var app = {
                          <span class="msg-title"> en ${value.co_nombre_tarea_full}</span>
                        </div>
                        <div>
-                         <div class="message-text">
-                          ${value.co_comentario_trim}
-                         </div>
-                         <div class="message-text-full" style="display:none;">
-                          ${value.co_comentario_full}
-                         </div>
+                         <div class="message-text">${value.co_comentario_trim}</div>
+
+                         <div class="message-text-full" style="display:none;">${value.co_comentario_full}</div>
+
                        </div>
-                       <div class="tarealink" style="display:none">
-                          ${value.co_id_tarea}
-                       </div>
+                       <div class="tarealink" style="display:none">${value.co_id_tarea}</div>
                      </div>
                    </a>
                  </li>
@@ -217,7 +213,7 @@ var app = {
 
                   });
                   //console.log(myHtmlList);
-                  console.log($("#listamensajes"));
+
                   $("#listamensajes").empty().append(myHtmlList);
 
               }else{
@@ -231,6 +227,7 @@ var app = {
     }
 
 
+
      $("#listamensajes").on("click", ".list-message", function(){
        var msgRecurso = $(this).find(".msg-recurso").html()
          , recursoImg = $(this).find("#resource-img").html()
@@ -241,7 +238,7 @@ var app = {
          , tareaLink = $(this).find(".tarealink").html()
          , singleMessage = '';
 
-         console.log(msgCommentTrim);
+         console.log($('#listamensajes').html());
 
        singleMessage+=`
             <div class="message">
@@ -264,12 +261,12 @@ var app = {
               <p class="full-message-text">${msgComment}</p>
               <br />
               <div>
-                <a class="tarea-link" href="http://t.adp.mx/${tareaLink}">
-                  Ver tarea: http://t.adp.mx/${tareaLink}
-                </a>
+                <a href="#" onclick="cordova.InAppBrowser.open('http://t.adp.mx/${tareaLink}', '_system');return false;" class="tarea-link" data-load="1" >Ver tarea: http://t.adp.mx/${tareaLink}</a>
               </div>
             </div>
         `;
+
+
 
        $.fancybox.open(singleMessage);
 
