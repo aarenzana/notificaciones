@@ -182,12 +182,18 @@ var app = {
 			        else
 			         	red="-unread";
 
+
+              // if(value.co_id_usuario=="")
+              //   value.co_id_usuario = "thumb2";
+
 			       myHtmlList+=`
                  <li class="list-message">
                    <a href="#" class="w-clearfix w-inline-block" data-load="1" >
                      <div class="column-left w-clearfix">
                        <div id="resource-img" class="image-message${red}">
-                         <img src="http://adpdev.com/adp/images/linkedin/${value.co_id_usuario}.png">
+                         <object data="http://adpdev.com/adp/images/linkedin/${value.co_id_usuario}.png" type="image/png">
+                          <img src="http://adpdev.com/adp/images/linkedin/avatar.png" />
+                         </object>
                        </div>
                        <div class="time time-elapsed${red}">
                          ${value.co_fecha_registro}
@@ -202,9 +208,8 @@ var app = {
                          <div class="message-text">${value.co_comentario_trim}</div>
 
                          <div class="message-text-full" style="display:none;">${value.co_comentario_full}</div>
-
                        </div>
-                       <div class="tarealink" style="display:none">${value.co_id_tarea}</div>
+                       <div class="tarealink" style="display:none">${value.co_id_tarea}#commid${value.co_id_comentario}</div>
                      </div>
                    </a>
                  </li>
@@ -241,7 +246,7 @@ var app = {
          console.log($('#listamensajes').html());
 
        singleMessage+=`
-            <div class="message">
+            <div id="singleMessage" class="message">
               <div class="message-head">
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
@@ -258,24 +263,42 @@ var app = {
                 </table>
               </div>
 
-              <p class="full-message-text">${msgComment}</p>
-              <br />
-              <div>
-                <a href="#" onclick="cordova.InAppBrowser.open('http://t.adp.mx/${tareaLink}', '_system');return false;" class="tarea-link" data-load="1" >Ver tarea: http://t.adp.mx/${tareaLink}</a>
+              <div class="message-body">
+                <p class="full-message-text">${msgComment}</p>
+                <br />
+              </div>
+              <div style="text-align:right;">
+                <a href="#" onclick="cordova.InAppBrowser.open('http://t.adp.mx/${tareaLink}', '_system');return false;" class="tarea-link btn" data-load="1" >Ir al comentario</a>
               </div>
             </div>
         `;
 
 
 
-       $.fancybox.open(singleMessage);
+       $.fancybox.open({
+          src   : singleMessage,
+          type  : 'inline',
+          opts  : {
+            touch : {
+                vertical : false
+            }
+          },
+       });
+
+       $(".fancybox-slide").on( "swipeleft", function() {
+          parent.$.fancybox.close();
+       } );
+
+
+
+
+
+
 
       //  var singleMsg = window.open('mensaje.html');
       //  singleMsg.$(".single-message").html("mensajeInd");
 
      });
-
-
 
 
 
@@ -291,8 +314,6 @@ var app = {
                 "¿Ver Tarea?",           // title
                 ['Ok']                  // buttonName
             );*/
-
-
 
 
        });

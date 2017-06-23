@@ -116,8 +116,17 @@
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
+    <script>
 
+    if($.fancybox.open){
+      document.addEventListener('backbutton', backButtonE, false);
+         function backButtonE(){
+           parent.$.fancybox.close();
+           $(document).removeEventListener('backbutton', backButtonE, false);
+         }
+     }
 
+    </script>
 
   <script src="js/webfont.js"></script>
   <script type="text/javascript">
