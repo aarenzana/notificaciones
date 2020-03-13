@@ -182,7 +182,6 @@ var app = {
 			        else
 			         	red="-unread";
 
-
               // if(value.co_id_usuario=="")
               //   value.co_id_usuario = "thumb2";
 
@@ -196,10 +195,12 @@ var app = {
                          </object>
                        </div>
                        <div class="time time-elapsed${red}">
+
                          ${value.co_fecha_registro}
                        </div>
                      </div>
                      <div class="column-right">
+
                        <div class="time-elapsed">
                          <span class="msg-recurso">${value.co_recurso}<span>
                          <span class="msg-title"> en ${value.co_nombre_tarea_full}</span>
@@ -212,6 +213,7 @@ var app = {
                        <div class="tarealink" style="display:none">${value.co_id_tarea}#commid${value.co_id_comentario}</div>
                      </div>
                    </a>
+
                  </li>
              `;
 
@@ -230,7 +232,6 @@ var app = {
           }
         });
     }
-
 
 
      $("#listamensajes").on("click", ".list-message", function(){
@@ -299,6 +300,7 @@ var app = {
       //  singleMsg.$(".single-message").html("mensajeInd");
 
      });
+
 
 
 

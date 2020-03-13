@@ -196,6 +196,7 @@ var app = {
                          </object>
                        </div>
                        <div class="time time-elapsed${red}">
+
                          ${value.co_fecha_registro}
                        </div>
                      </div>
@@ -212,6 +213,7 @@ var app = {
                        <div class="tarealink" style="display:none">${value.co_id_tarea}#commid${value.co_id_comentario}</div>
                      </div>
                    </a>
+
                  </li>
              `;
 
@@ -231,8 +233,7 @@ var app = {
         });
     }
 
-
-
+      
      $("#listamensajes").on("click", ".list-message", function(){
        var msgRecurso = $(this).find(".msg-recurso").html()
          , recursoImg = $(this).find("#resource-img").html()
@@ -299,7 +300,6 @@ var app = {
       //  singleMsg.$(".single-message").html("mensajeInd");
 
      });
-
 
 
 
