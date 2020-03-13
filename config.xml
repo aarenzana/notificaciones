@@ -1,17 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>ADP Notificaciones - aal dev</name>
+
+    <name>ADP Notificaciones</name>
+
     <description>
-        Push sample application that receives push notifications.
+        Aplicación de notificaciónes de mensajes de sistema AdPunto
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="alejandro@adp.mx" href="http://adpunto.mx">
+        AdPunto Inbound Marketing
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#ee6e73" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="blacktranslucent" />
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.3" />
     <plugin name="phonegap-plugin-push" source="npm" spec="~1.8.0">
@@ -22,24 +24,18 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <plugin name="cordova-plugin-inappbrowser" source="npm" version="1.1.1" />
     <platform name="android">
-        <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
-        <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
-        <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
-        <icon density="xhdpi" src="www/res/icon/android/drawable-xhdpi-icon.png" />
-        <icon density="xxhdpi" src="www/res/icon/android/drawable-xxhdpi-icon.png" />
-        <icon density="xxxhdpi" src="www/res/icon/android/drawable-xxxhdpi-icon.png" />
-        <splash density="land-ldpi" src="www/res/screen/android/drawable-land-ldpi-screen.png" />
-        <splash density="land-mdpi" src="www/res/screen/android/drawable-land-mdpi-screen.png" />
-        <splash density="land-hdpi" src="www/res/screen/android/drawable-land-hdpi-screen.png" />
-        <splash density="land-xhdpi" src="www/res/screen/android/drawable-land-xhdpi-screen.png" />
-        <splash density="land-xxhdpi" src="www/res/screen/android/drawable-land-xxhdpi-screen.png" />
-        <splash density="land-xxxhdpi" src="www/res/screen/android/drawable-land-xxxhdpi-screen.png" />
-        <splash density="port-ldpi" src="www/res/screen/android/drawable-port-ldpi-screen.png" />
-        <splash density="port-mdpi" src="www/res/screen/android/drawable-port-mdpi-screen.png" />
-        <splash density="port-hdpi" src="www/res/screen/android/drawable-port-hdpi-screen.png" />
-        <splash density="port-xhdpi" src="www/res/screen/android/drawable-port-xhdpi-screen.png" />
-        <splash density="port-xxhdpi" src="www/res/screen/android/drawable-port-xxhdpi-screen.png" />
-        <splash density="port-xxxhdpi" src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
+        <icon density="ldpi" src="www/res/icon/android/mipmap-ldpi/icon.png" />
+        <icon density="mdpi" src="www/res/icon/android/mipmap-mdpi/icon.png" />
+        <icon density="hdpi" src="www/res/icon/android/mipmap-hdpi/icon.png" />
+        <icon density="xhdpi" src="www/res/icon/android/mipmap-xhdpi/icon.png" />
+        <splash density="land-ldpi" src="www/res/icon/android/drawable-land-ldpi/screen.png" />
+        <splash density="land-mdpi" src="www/res/icon/android/drawable-land-mdpi/screen.png" />
+        <splash density="land-hdpi" src="www/res/icon/android/drawable-land-hdpi/screen.png" />
+        <splash density="land-xhdpi" src="www/res/icon/android/drawable-land-xhdpi/screen.png" />
+        <splash density="port-ldpi" src="www/res/icon/android/drawable-port-ldpi/screen.png" />
+        <splash density="port-mdpi" src="www/res/icon/android/drawable-port-mdpi/screen.png" />
+        <splash density="port-hdpi" src="www/res/icon/android/drawable-port-hdpi/screen.png" />
+        <splash density="port-xhdpi" src="www/res/icon/android/drawable-port-xhdpi/screen.png" />
     </platform>
     <platform name="ios">
         <icon height="57" platform="ios" src="www/res/icon/ios/icon.png" width="57" />

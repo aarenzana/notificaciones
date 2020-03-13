@@ -170,7 +170,7 @@ var app = {
                   console.log("Recibí los datos");
                   //&console.log(data.info.comentarios_total);
 
-                  var myHtmlList="";
+                  var myHtmlList = "";
 
                   $.each(data.dataset.comentarios, function(index, value) {
 
@@ -182,36 +182,45 @@ var app = {
 			        else
 			         	red="-unread";
 
+              // if(value.co_id_usuario=="")
+              //   value.co_id_usuario = "thumb2";
+
 			       myHtmlList+=`
                  <li class="list-message">
-                   <a  href="#" onclick="cordova.InAppBrowser.open('http://t.adp.mx/${value.co_id_tarea}', '_system');return false;" class="w-clearfix w-inline-block" data-load="1" >
+                   <a href="#" class="w-clearfix w-inline-block" data-load="1" >
                      <div class="column-left w-clearfix">
-                       <div class="image-message ${red}">
-                         <img src="http://adpdev.com/adp/images/linkedin/${value.co_id_usuario}.png">
+                       <div id="resource-img" class="image-message${red}">
+                         <object data="http://adpdev.com/adp/images/linkedin/${value.co_id_usuario}.png" type="image/png">
+                          <img src="http://adpdev.com/adp/images/linkedin/avatar.png" />
+                         </object>
                        </div>
-                       <div class="time-elapsed ${red}">
+                       <div class="time time-elapsed${red}">
+
                          ${value.co_fecha_registro}
                        </div>
                      </div>
                      <div class="column-right">
-                       <div class="message-title">
-                         <strong>${value.co_recurso}</strong> en ${value.co_nombre_tarea}
+
+                       <div class="time-elapsed">
+                         <span class="msg-recurso">${value.co_recurso}<span>
+                         <span class="msg-title"> en ${value.co_nombre_tarea_full}</span>
                        </div>
-                       <div class="message-text">
-                         ${value.co_comentario}
+                       <div>
+                         <div class="message-text">${value.co_comentario_trim}</div>
+
+                         <div class="message-text-full" style="display:none;">${value.co_comentario_full}</div>
                        </div>
+                       <div class="tarealink" style="display:none">${value.co_id_tarea}#commid${value.co_id_comentario}</div>
                      </div>
                    </a>
-                   <div class="time-elapsed ${red}">
-                     ${value.co_nombre_cliente}
-                   </div>
+
                  </li>
              `;
 
 
                   });
                   //console.log(myHtmlList);
-                  console.log($("#listamensajes"));
+
                   $("#listamensajes").empty().append(myHtmlList);
 
               }else{
@@ -224,6 +233,78 @@ var app = {
         });
     }
 
+
+     $("#listamensajes").on("click", ".list-message", function(){
+       var msgRecurso = $(this).find(".msg-recurso").html()
+         , recursoImg = $(this).find("#resource-img").html()
+         , msgTitle = $(this).find(".msg-title").html()
+         , msgCommentTrim = $(this).find(".message-text").html()
+         , msgComment = $(this).find(".message-text-full").html()
+         , timeElapsed = $(this).find(".time").html()
+         , tareaLink = $(this).find(".tarealink").html()
+         , singleMessage = '';
+
+         console.log($('#listamensajes').html());
+
+       singleMessage+=`
+            <div id="singleMessage" class="message">
+              <div class="message-head">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td width="20%">
+                      <div class="image-message">${recursoImg}</div>
+                    </td>
+                    <td width="80%">
+                      <div class="resource">
+                        <b>${msgRecurso}</b>
+                        <div class="timeel">Hace ${timeElapsed}</div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="message-body">
+                <p class="full-message-text">${msgComment}</p>
+                <br />
+              </div>
+              <div style="text-align:right;">
+                <a href="#" onclick="cordova.InAppBrowser.open('http://t.adp.mx/${tareaLink}', '_system');return false;" class="tarea-link btn" data-load="1" >Ir al comentario</a>
+              </div>
+            </div>
+        `;
+
+
+
+       $.fancybox.open({
+          src   : singleMessage,
+          type  : 'inline',
+          opts  : {
+            touch : {
+                vertical : false
+            }
+          },
+       });
+
+       $(".fancybox-slide").on( "swipeleft", function() {
+          parent.$.fancybox.close();
+       } );
+
+
+
+
+
+
+
+      //  var singleMsg = window.open('mensaje.html');
+      //  singleMsg.$(".single-message").html("mensajeInd");
+
+     });
+
+
+
+
+
         push.on('notification', function(data) {
         	 updateComentarios(user_id);
             console.log('notification event');
@@ -235,8 +316,6 @@ var app = {
                 "¿Ver Tarea?",           // title
                 ['Ok']                  // buttonName
             );*/
-
-
 
 
        });

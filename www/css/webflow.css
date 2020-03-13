@@ -57,7 +57,7 @@ html.w-mod-touch * {
 .w-block {
   display: block;
 }
-.w-inline-block {
+/*.w-inline-block {
   max-width: 100%;
   display: inline-block;
 }
@@ -68,7 +68,7 @@ html.w-mod-touch * {
 }
 .w-clearfix:after {
   clear: both;
-}
+}*/
 .w-preserve-3d {
   transform-style: preserve-3d;
 }
